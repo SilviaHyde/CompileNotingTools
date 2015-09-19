@@ -1,0 +1,2062 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     68246,       2053]
+NotebookOptionsPosition[     65938,       1976]
+NotebookOutlinePosition[     66517,       1998]
+CellTagsIndexPosition[     66412,       1993]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Load The Package", "Subsubsection"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Needs", "[", "\"\<CompileNotingTools`\>\"", "]"}]], "Input"],
+
+Cell[BoxData[
+ StyleBox["\<\"\\!\\(\\*TagBox[GridBox[{{TemplateBox[List[StyleBox[\\\"\\\\\\\
+\"CompileNoting[ CompiledFunction[...] ]\\\\\\\"\\\", Bold, \
+Rule[StripOnInput, False]], \\\"\\\\\\\" is a fancy formatter which generates \
+a sidenoted \\\\\\\"\\\", StyleBox[\\\"\\\\\\\"Input Cell\\\\\\\"\\\", Bold, \
+Rule[StripOnInput, False]], \\\"\\\\\\\" of the inputted \\\\\\\"\\\", \
+StyleBox[\\\"\\\\\\\"CompiledFunction[...]\\\\\\\"\\\", Bold, \
+Rule[StripOnInput, False]], \\\"\\\\\\\" .\\\\\\\"\\\"], \
+\\\"RowDefault\\\"]}, {TagBox[GridBox[{{StyleBox[\\\"\\\\\\\"Usage Example: \
+\\\\\\\"\\\", Bold, 14, Rule[StripOnInput, False]]}, \
+{StyleBox[\\(\\(\\(Compile[\\(\\(\\(\\({\\(\\({n, _Integer}\\)\\), x}\\)\\), \
+\\(n + x\\)\\/\\({3, 7}\\)\\)\\)]\\)\\)//CompileNoting\\), \\\"Input\\\", \
+Rule[FontWeight, Plain], Rule[StripOnInput, False]]}}, GridBoxAlignment -> \
+{\\\"Columns\\\" -> {{Left}}}, DefaultBaseStyle -> \\\"Column\\\", \
+GridBoxItemSize -> {\\\"Columns\\\" -> {{Automatic}}, \\\"Rows\\\" -> \
+{{Automatic}}}], \\\"Column\\\"]}}, GridBoxAlignment -> {\\\"Columns\\\" -> \
+{{Left}}}, DefaultBaseStyle -> \\\"Column\\\", GridBoxDividers -> \
+{\\\"Columns\\\" -> {False, {True}, False}, \\\"Rows\\\" -> {False, {True}, \
+False}}, GridBoxItemSize -> {\\\"Columns\\\" -> {{Automatic}}, \\\"Rows\\\" \
+-> {{Automatic}}}, GridBoxSpacings -> {\\\"Columns\\\" -> {{Automatic}}, \
+\\\"Rows\\\" -> {{3}}}, FrameStyle -> GrayLevel[0.7]], \
+\\\"Column\\\"]\\)\"\>", "MSG"]], "Print", "PrintUsage",
+ CellTags->"Info-4898937d-d48d-4cb1-adf5-11bf3b96dd88"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Basic Example", "Subsubsection"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"cf", "=", 
+   RowBox[{"Compile", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"{", 
+       RowBox[{"x", ",", "_Real"}], "}"}], "}"}], ",", 
+     RowBox[{
+      RowBox[{"Sin", "[", "x", "]"}], "+", 
+      SuperscriptBox["x", "2"], "-", 
+      FractionBox["1", 
+       RowBox[{"1", "+", "x"}]]}]}], "]"}]}], ";"}]], "Input"],
+
+Cell[TextData[{
+ "The generated cell is a normal ",
+ StyleBox["Input",
+  FontWeight->"Bold"],
+ " ",
+ StyleBox["Cell",
+  FontWeight->"Bold"],
+ ", which is ",
+ StyleBox["evaluable",
+  FontWeight->"Bold"],
+ "."
+}], "Text"],
+
+Cell[BoxData[
+ RowBox[{"cf", "//", "CompileNoting"}]], "Input"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ StyleBox[
+  RowBox[{
+   RowBox[{"CompiledFunction", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"10", ",", "10.2`", ",", "5468"}], "}"}], ",", 
+     RowBox[{"{", "_Real", "}"}], ",", "\[IndentingNewLine]", 
+     RowBox[{"{", "\[IndentingNewLine]", 
+      RowBox[{
+       StyleBox["(*",
+        FontColor->GrayLevel[0.9]], "\t", 
+       RowBox[{"Input", " ", 
+        RowBox[{"registers", ":"}]}], "\t", 
+       StyleBox["*)",
+        FontColor->GrayLevel[0.9]]}], "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"3", ",", "0", ",", "0"}], "}"}], 
+       RowBox[{
+        StyleBox["(*",
+         FontColor->GrayLevel[0.9]], "\t", 
+        FrameBox[
+         StyleBox["R0",
+          FontSize->12,
+          FontWeight->"Bold",
+          FontColor->RGBColor[0.2, 0.5, 0.2]],
+         Background->RGBColor[0.8, 1, 0.8],
+         FrameMargins->1,
+         FrameStyle->RGBColor[0.5, 0.8, 0.5]], "\t", 
+        StyleBox["*)",
+         FontColor->GrayLevel[0.9]]}], ",", "\[IndentingNewLine]", 
+       "\[IndentingNewLine]", 
+       RowBox[{
+        StyleBox["(*",
+         FontColor->GrayLevel[0.9]], "\t", 
+        RowBox[{"Output", " ", 
+         RowBox[{"register", ":"}]}], "\t", 
+        StyleBox["*)",
+         FontColor->GrayLevel[0.9]]}], "\[IndentingNewLine]", 
+       RowBox[{"{", 
+        RowBox[{"3", ",", "0", ",", "1"}], "}"}]}], 
+      RowBox[{
+       StyleBox["(*",
+        FontColor->GrayLevel[0.9]], "\t", 
+       FrameBox[
+        StyleBox["R1",
+         FontSize->12,
+         FontWeight->"Bold",
+         FontColor->RGBColor[0.2, 0.5, 0.2]],
+        Background->RGBColor[0.8, 1, 0.8],
+        FrameMargins->1,
+        FrameStyle->RGBColor[0.5, 0.8, 0.5]], "\t", 
+       StyleBox["*)",
+        FontColor->GrayLevel[0.9]]}], "\[IndentingNewLine]", "}"}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"{", "\[IndentingNewLine]", 
+      RowBox[{
+       StyleBox["(*",
+        FontColor->GrayLevel[0.9]], "\t", 
+       RowBox[{
+        RowBox[{"Constant", 
+         RowBox[{"(", "s", ")"}], " ", "in", " ", "register", 
+         RowBox[{"(", "s", ")"}]}], ":"}], "\t", 
+       StyleBox["*)",
+        FontColor->GrayLevel[0.9]]}], "\[IndentingNewLine]", 
+      RowBox[{
+       StyleBox["(*",
+        FontColor->GrayLevel[0.9]], GridBox[{
+         {"1"},
+         {"\[DoubleDownArrow]"},
+         {
+          FrameBox[
+           StyleBox["I0",
+            FontSize->12,
+            FontWeight->"Bold",
+            FontColor->RGBColor[0.2, 0.5, 0.2]],
+           Background->RGBColor[0.8, 1, 0.8],
+           FrameMargins->1,
+           FrameStyle->RGBColor[0.5, 0.8, 0.5]]}
+        },
+        DefaultBaseStyle->"Column",
+        GridBoxAlignment->{"Columns" -> {{Center}}},
+        GridBoxFrame->{"Columns" -> None, "Rows" -> None},
+        GridBoxItemSize->{
+         "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], 
+       StyleBox["*)",
+        FontColor->GrayLevel[0.9]]}], 
+      RowBox[{"{", 
+       RowBox[{"1", ",", 
+        RowBox[{"{", 
+         RowBox[{"2", ",", "0", ",", "0"}], "}"}]}], "}"}], 
+      "\[IndentingNewLine]", "}"}], ",", "\[IndentingNewLine]", 
+     RowBox[{"{", "\[IndentingNewLine]", 
+      RowBox[{
+       StyleBox["(*",
+        FontColor->GrayLevel[0.9]], "\t", 
+       RowBox[{"number", " ", "of", " ", 
+        RowBox[{"registers", ":"}]}], "\t", 
+       StyleBox["*)",
+        FontColor->GrayLevel[0.9]]}], "\[IndentingNewLine]", 
+      RowBox[{
+       StyleBox["(*",
+        FontColor->GrayLevel[0.9]], "\t", 
+       FrameBox[
+        StyleBox["B",
+         FontSize->12,
+         FontWeight->"Bold",
+         FontColor->RGBColor[0.5, 0.2, 0.5]],
+        Background->RGBColor[1, 0.8, 1],
+        FrameMargins->1,
+        FrameStyle->RGBColor[0.8, 0.5, 0.8]], 
+       StyleBox["*)",
+        FontColor->GrayLevel[0.9]]}], 
+      RowBox[{"0", ",", 
+       RowBox[{
+        StyleBox["(*",
+         FontColor->GrayLevel[0.9]], "\t", 
+        FrameBox[
+         StyleBox["I",
+          FontSize->12,
+          FontWeight->"Bold",
+          FontColor->RGBColor[0.2, 0.5, 0.2]],
+         Background->RGBColor[0.8, 1, 0.8],
+         FrameMargins->1,
+         FrameStyle->RGBColor[0.5, 0.8, 0.5]], 
+        StyleBox["*)",
+         FontColor->GrayLevel[0.9]]}], "1", ",", 
+       RowBox[{
+        StyleBox["(*",
+         FontColor->GrayLevel[0.9]], "\t", 
+        FrameBox[
+         StyleBox["R",
+          FontSize->12,
+          FontWeight->"Bold",
+          FontColor->RGBColor[0.2, 0.5, 0.2]],
+         Background->RGBColor[0.8, 1, 0.8],
+         FrameMargins->1,
+         FrameStyle->RGBColor[0.5, 0.8, 0.5]], 
+        StyleBox["*)",
+         FontColor->GrayLevel[0.9]]}], "5", ",", 
+       RowBox[{
+        StyleBox["(*",
+         FontColor->GrayLevel[0.9]], "\t", 
+        FrameBox[
+         StyleBox["C",
+          FontSize->12,
+          FontWeight->"Bold",
+          FontColor->RGBColor[0.2, 0.5, 0.2]],
+         Background->RGBColor[0.8, 1, 0.8],
+         FrameMargins->1,
+         FrameStyle->RGBColor[0.5, 0.8, 0.5]], 
+        StyleBox["*)",
+         FontColor->GrayLevel[0.9]]}], "0", ",", 
+       RowBox[{
+        StyleBox["(*",
+         FontColor->GrayLevel[0.9]], "\t", 
+        FrameBox[
+         StyleBox["T",
+          FontSize->12,
+          FontWeight->"Bold",
+          FontColor->RGBColor[0, 0.3, 0.5]],
+         Background->RGBColor[0.8, 1, 1],
+         FrameMargins->1,
+         FrameStyle->RGBColor[0.5, 0.7, 0.7]], 
+        StyleBox["*)",
+         FontColor->GrayLevel[0.9]]}], "0"}], "\[IndentingNewLine]", "}"}], 
+     ",", "\[IndentingNewLine]", 
+     RowBox[{"{", "\[IndentingNewLine]", 
+      RowBox[{
+       StyleBox["(*",
+        FontColor->GrayLevel[0.9]], "\t", 
+       RowBox[{"bytecode", " ", 
+        RowBox[{"block", ":"}]}], "\t", 
+       StyleBox["*)",
+        FontColor->GrayLevel[0.9]]}], "\[IndentingNewLine]", 
+      RowBox[{
+       StyleBox["(*",
+        FontColor->GrayLevel[0.9]], "\t", 
+       StyleBox["1",
+        FontWeight->"Bold",
+        FontSlant->"Italic",
+        FontColor->RGBColor[0, 0.4, 0.9]], "\t", 
+       StyleBox["*)",
+        FontColor->GrayLevel[0.9]]}], 
+      RowBox[{
+       StyleBox["(*",
+        FontColor->GrayLevel[0.9]], "\t", 
+       StyleBox[
+        RowBox[{
+         FrameBox[
+          StyleBox["R1",
+           FontSize->12,
+           FontWeight->"Bold",
+           FontColor->RGBColor[0.2, 0.5, 0.2]],
+          Background->RGBColor[0.8, 1, 0.8],
+          FrameMargins->1,
+          FrameStyle->RGBColor[0.5, 0.8, 0.5]], " ", "=", " ", 
+         RowBox[{"Sin", "[", " ", 
+          FrameBox[
+           StyleBox["R0",
+            FontSize->12,
+            FontWeight->"Bold",
+            FontColor->RGBColor[0.2, 0.5, 0.2]],
+           Background->RGBColor[0.8, 1, 0.8],
+           FrameMargins->1,
+           FrameStyle->RGBColor[0.5, 0.8, 0.5]], "]"}]}],
+        FontWeight->"Plain",
+        FontColor->GrayLevel[0.3]], "\t", 
+       StyleBox["*)",
+        FontColor->GrayLevel[0.9]]}], "\[IndentingNewLine]", "\t\t\t", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+        "40", ",", "1", ",", "3", ",", "0", ",", "0", ",", "3", ",", "0", ",",
+          "1"}], "}"}], ",", "\[IndentingNewLine]", 
+       RowBox[{
+        StyleBox["(*",
+         FontColor->GrayLevel[0.9]], "\t", 
+        StyleBox[
+         RowBox[{"--", 
+          RowBox[{"--", 
+           RowBox[{"--", 
+            RowBox[{"--", 
+             RowBox[{"--", 
+              RowBox[{"--", 
+               RowBox[{"--", 
+                RowBox[{"--", 
+                 RowBox[{"--", 
+                  RowBox[{"--", 
+                   RowBox[{"--", 
+                    RowBox[{"--", "--"}]}]}]}]}]}]}]}]}]}]}]}],
+         FontWeight->"Bold",
+         FontSlant->"Italic",
+         FontColor->RGBColor[0, 0.4, 0.9]], "\t", 
+        StyleBox["*)",
+         FontColor->GrayLevel[0.9]]}], "\[IndentingNewLine]", 
+       RowBox[{
+        StyleBox["(*",
+         FontColor->GrayLevel[0.9]], "\t", 
+        StyleBox["2",
+         FontWeight->"Bold",
+         FontSlant->"Italic",
+         FontColor->RGBColor[0, 0.4, 0.9]], "\t", 
+        StyleBox["*)",
+         FontColor->GrayLevel[0.9]]}], 
+       RowBox[{
+        StyleBox["(*",
+         FontColor->GrayLevel[0.9]], "\t", 
+        StyleBox[
+         RowBox[{
+          FrameBox[
+           StyleBox["R2",
+            FontSize->12,
+            FontWeight->"Bold",
+            FontColor->RGBColor[0.2, 0.5, 0.2]],
+           Background->RGBColor[0.8, 1, 0.8],
+           FrameMargins->1,
+           FrameStyle->RGBColor[0.5, 0.8, 0.5]], " ", "=", " ", 
+          RowBox[{"Square", "[", " ", 
+           FrameBox[
+            StyleBox["R0",
+             FontSize->12,
+             FontWeight->"Bold",
+             FontColor->RGBColor[0.2, 0.5, 0.2]],
+            Background->RGBColor[0.8, 1, 0.8],
+            FrameMargins->1,
+            FrameStyle->RGBColor[0.5, 0.8, 0.5]], "]"}]}],
+         FontWeight->"Plain",
+         FontColor->GrayLevel[0.3]], "\t", 
+        StyleBox["*)",
+         FontColor->GrayLevel[0.9]]}], "\[IndentingNewLine]", "\t\t\t", 
+       RowBox[{"{", 
+        RowBox[{
+        "40", ",", "56", ",", "3", ",", "0", ",", "0", ",", "3", ",", "0", 
+         ",", "2"}], "}"}], ",", "\[IndentingNewLine]", 
+       RowBox[{
+        StyleBox["(*",
+         FontColor->GrayLevel[0.9]], "\t", 
+        StyleBox[
+         RowBox[{"--", 
+          RowBox[{"--", 
+           RowBox[{"--", 
+            RowBox[{"--", 
+             RowBox[{"--", 
+              RowBox[{"--", 
+               RowBox[{"--", 
+                RowBox[{"--", 
+                 RowBox[{"--", 
+                  RowBox[{"--", 
+                   RowBox[{"--", 
+                    RowBox[{"--", "--"}]}]}]}]}]}]}]}]}]}]}]}],
+         FontWeight->"Bold",
+         FontSlant->"Italic",
+         FontColor->RGBColor[0, 0.4, 0.9]], "\t", 
+        StyleBox["*)",
+         FontColor->GrayLevel[0.9]]}], "\[IndentingNewLine]", 
+       RowBox[{
+        StyleBox["(*",
+         FontColor->GrayLevel[0.9]], "\t", 
+        StyleBox["3",
+         FontWeight->"Bold",
+         FontSlant->"Italic",
+         FontColor->RGBColor[0, 0.4, 0.9]], "\t", 
+        StyleBox["*)",
+         FontColor->GrayLevel[0.9]]}], 
+       RowBox[{
+        StyleBox["(*",
+         FontColor->GrayLevel[0.9]], "\t", 
+        StyleBox[
+         RowBox[{
+          FrameBox[
+           StyleBox["R3",
+            FontSize->12,
+            FontWeight->"Bold",
+            FontColor->RGBColor[0.2, 0.5, 0.2]],
+           Background->RGBColor[0.8, 1, 0.8],
+           FrameMargins->1,
+           FrameStyle->RGBColor[0.5, 0.8, 0.5]], " ", "=", " ", 
+          FrameBox[
+           StyleBox["I0",
+            FontSize->12,
+            FontWeight->"Bold",
+            FontColor->RGBColor[0.2, 0.5, 0.2]],
+           Background->RGBColor[0.8, 1, 0.8],
+           FrameMargins->1,
+           FrameStyle->RGBColor[0.5, 0.8, 0.5]]}],
+         FontWeight->"Plain",
+         FontColor->GrayLevel[0.3]], "\t", 
+        StyleBox["*)",
+         FontColor->GrayLevel[0.9]]}], "\[IndentingNewLine]", "\t\t\t", 
+       RowBox[{"{", 
+        RowBox[{"10", ",", "0", ",", "3"}], "}"}], ",", "\[IndentingNewLine]", 
+       RowBox[{
+        StyleBox["(*",
+         FontColor->GrayLevel[0.9]], "\t", 
+        StyleBox[
+         RowBox[{"--", 
+          RowBox[{"--", 
+           RowBox[{"--", 
+            RowBox[{"--", 
+             RowBox[{"--", 
+              RowBox[{"--", 
+               RowBox[{"--", 
+                RowBox[{"--", 
+                 RowBox[{"--", 
+                  RowBox[{"--", 
+                   RowBox[{"--", 
+                    RowBox[{"--", "--"}]}]}]}]}]}]}]}]}]}]}]}],
+         FontWeight->"Bold",
+         FontSlant->"Italic",
+         FontColor->RGBColor[0, 0.4, 0.9]], "\t", 
+        StyleBox["*)",
+         FontColor->GrayLevel[0.9]]}], "\[IndentingNewLine]", 
+       RowBox[{
+        StyleBox["(*",
+         FontColor->GrayLevel[0.9]], "\t", 
+        StyleBox["4",
+         FontWeight->"Bold",
+         FontSlant->"Italic",
+         FontColor->RGBColor[0, 0.4, 0.9]], "\t", 
+        StyleBox["*)",
+         FontColor->GrayLevel[0.9]]}], 
+       RowBox[{
+        StyleBox["(*",
+         FontColor->GrayLevel[0.9]], "\t", 
+        StyleBox[
+         RowBox[{
+          FrameBox[
+           StyleBox["R3",
+            FontSize->12,
+            FontWeight->"Bold",
+            FontColor->RGBColor[0.2, 0.5, 0.2]],
+           Background->RGBColor[0.8, 1, 0.8],
+           FrameMargins->1,
+           FrameStyle->RGBColor[0.5, 0.8, 0.5]], " ", "=", " ", 
+          RowBox[{
+           FrameBox[
+            StyleBox["R3",
+             FontSize->12,
+             FontWeight->"Bold",
+             FontColor->RGBColor[0.2, 0.5, 0.2]],
+            Background->RGBColor[0.8, 1, 0.8],
+            FrameMargins->1,
+            FrameStyle->RGBColor[0.5, 0.8, 0.5]], " ", "+", " ", 
+           FrameBox[
+            StyleBox["R0",
+             FontSize->12,
+             FontWeight->"Bold",
+             FontColor->RGBColor[0.2, 0.5, 0.2]],
+            Background->RGBColor[0.8, 1, 0.8],
+            FrameMargins->1,
+            FrameStyle->RGBColor[0.5, 0.8, 0.5]]}]}],
+         FontWeight->"Plain",
+         FontColor->GrayLevel[0.3]], "\t", 
+        StyleBox["*)",
+         FontColor->GrayLevel[0.9]]}], "\[IndentingNewLine]", "\t\t\t", 
+       RowBox[{"{", 
+        RowBox[{"13", ",", "3", ",", "0", ",", "3"}], "}"}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{
+        StyleBox["(*",
+         FontColor->GrayLevel[0.9]], "\t", 
+        StyleBox[
+         RowBox[{"--", 
+          RowBox[{"--", 
+           RowBox[{"--", 
+            RowBox[{"--", 
+             RowBox[{"--", 
+              RowBox[{"--", 
+               RowBox[{"--", 
+                RowBox[{"--", 
+                 RowBox[{"--", 
+                  RowBox[{"--", 
+                   RowBox[{"--", 
+                    RowBox[{"--", "--"}]}]}]}]}]}]}]}]}]}]}]}],
+         FontWeight->"Bold",
+         FontSlant->"Italic",
+         FontColor->RGBColor[0, 0.4, 0.9]], "\t", 
+        StyleBox["*)",
+         FontColor->GrayLevel[0.9]]}], "\[IndentingNewLine]", 
+       RowBox[{
+        StyleBox["(*",
+         FontColor->GrayLevel[0.9]], "\t", 
+        StyleBox["5",
+         FontWeight->"Bold",
+         FontSlant->"Italic",
+         FontColor->RGBColor[0, 0.4, 0.9]], "\t", 
+        StyleBox["*)",
+         FontColor->GrayLevel[0.9]]}], 
+       RowBox[{
+        StyleBox["(*",
+         FontColor->GrayLevel[0.9]], "\t", 
+        StyleBox[
+         RowBox[{
+          FrameBox[
+           StyleBox["R4",
+            FontSize->12,
+            FontWeight->"Bold",
+            FontColor->RGBColor[0.2, 0.5, 0.2]],
+           Background->RGBColor[0.8, 1, 0.8],
+           FrameMargins->1,
+           FrameStyle->RGBColor[0.5, 0.8, 0.5]], " ", "=", " ", 
+          RowBox[{"Reciprocal", "[", " ", 
+           FrameBox[
+            StyleBox["R3",
+             FontSize->12,
+             FontWeight->"Bold",
+             FontColor->RGBColor[0.2, 0.5, 0.2]],
+            Background->RGBColor[0.8, 1, 0.8],
+            FrameMargins->1,
+            FrameStyle->RGBColor[0.5, 0.8, 0.5]], "]"}]}],
+         FontWeight->"Plain",
+         FontColor->GrayLevel[0.3]], "\t", 
+        StyleBox["*)",
+         FontColor->GrayLevel[0.9]]}], "\[IndentingNewLine]", "\t\t\t", 
+       RowBox[{"{", 
+        RowBox[{
+        "40", ",", "60", ",", "3", ",", "0", ",", "3", ",", "3", ",", "0", 
+         ",", "4"}], "}"}], ",", "\[IndentingNewLine]", 
+       RowBox[{
+        StyleBox["(*",
+         FontColor->GrayLevel[0.9]], "\t", 
+        StyleBox[
+         RowBox[{"--", 
+          RowBox[{"--", 
+           RowBox[{"--", 
+            RowBox[{"--", 
+             RowBox[{"--", 
+              RowBox[{"--", 
+               RowBox[{"--", 
+                RowBox[{"--", 
+                 RowBox[{"--", 
+                  RowBox[{"--", 
+                   RowBox[{"--", 
+                    RowBox[{"--", "--"}]}]}]}]}]}]}]}]}]}]}]}],
+         FontWeight->"Bold",
+         FontSlant->"Italic",
+         FontColor->RGBColor[0, 0.4, 0.9]], "\t", 
+        StyleBox["*)",
+         FontColor->GrayLevel[0.9]]}], "\[IndentingNewLine]", 
+       RowBox[{
+        StyleBox["(*",
+         FontColor->GrayLevel[0.9]], "\t", 
+        StyleBox["6",
+         FontWeight->"Bold",
+         FontSlant->"Italic",
+         FontColor->RGBColor[0, 0.4, 0.9]], "\t", 
+        StyleBox["*)",
+         FontColor->GrayLevel[0.9]]}], 
+       RowBox[{
+        StyleBox["(*",
+         FontColor->GrayLevel[0.9]], "\t", 
+        StyleBox[
+         RowBox[{
+          FrameBox[
+           StyleBox["R3",
+            FontSize->12,
+            FontWeight->"Bold",
+            FontColor->RGBColor[0.2, 0.5, 0.2]],
+           Background->RGBColor[0.8, 1, 0.8],
+           FrameMargins->1,
+           FrameStyle->RGBColor[0.5, 0.8, 0.5]], " ", "=", " ", 
+          RowBox[{"-", " ", 
+           FrameBox[
+            StyleBox["R4",
+             FontSize->12,
+             FontWeight->"Bold",
+             FontColor->RGBColor[0.2, 0.5, 0.2]],
+            Background->RGBColor[0.8, 1, 0.8],
+            FrameMargins->1,
+            FrameStyle->RGBColor[0.5, 0.8, 0.5]]}]}],
+         FontWeight->"Plain",
+         FontColor->GrayLevel[0.3]], "\t", 
+        StyleBox["*)",
+         FontColor->GrayLevel[0.9]]}], "\[IndentingNewLine]", "\t\t\t", 
+       RowBox[{"{", 
+        RowBox[{"19", ",", "4", ",", "3"}], "}"}], ",", "\[IndentingNewLine]", 
+       RowBox[{
+        StyleBox["(*",
+         FontColor->GrayLevel[0.9]], "\t", 
+        StyleBox[
+         RowBox[{"--", 
+          RowBox[{"--", 
+           RowBox[{"--", 
+            RowBox[{"--", 
+             RowBox[{"--", 
+              RowBox[{"--", 
+               RowBox[{"--", 
+                RowBox[{"--", 
+                 RowBox[{"--", 
+                  RowBox[{"--", 
+                   RowBox[{"--", 
+                    RowBox[{"--", "--"}]}]}]}]}]}]}]}]}]}]}]}],
+         FontWeight->"Bold",
+         FontSlant->"Italic",
+         FontColor->RGBColor[0, 0.4, 0.9]], "\t", 
+        StyleBox["*)",
+         FontColor->GrayLevel[0.9]]}], "\[IndentingNewLine]", 
+       RowBox[{
+        StyleBox["(*",
+         FontColor->GrayLevel[0.9]], "\t", 
+        StyleBox["7",
+         FontWeight->"Bold",
+         FontSlant->"Italic",
+         FontColor->RGBColor[0, 0.4, 0.9]], "\t", 
+        StyleBox["*)",
+         FontColor->GrayLevel[0.9]]}], 
+       RowBox[{
+        StyleBox["(*",
+         FontColor->GrayLevel[0.9]], "\t", 
+        StyleBox[
+         RowBox[{
+          FrameBox[
+           StyleBox["R1",
+            FontSize->12,
+            FontWeight->"Bold",
+            FontColor->RGBColor[0.2, 0.5, 0.2]],
+           Background->RGBColor[0.8, 1, 0.8],
+           FrameMargins->1,
+           FrameStyle->RGBColor[0.5, 0.8, 0.5]], " ", "=", " ", 
+          RowBox[{
+           FrameBox[
+            StyleBox["R1",
+             FontSize->12,
+             FontWeight->"Bold",
+             FontColor->RGBColor[0.2, 0.5, 0.2]],
+            Background->RGBColor[0.8, 1, 0.8],
+            FrameMargins->1,
+            FrameStyle->RGBColor[0.5, 0.8, 0.5]], " ", "+", " ", 
+           FrameBox[
+            StyleBox["R2",
+             FontSize->12,
+             FontWeight->"Bold",
+             FontColor->RGBColor[0.2, 0.5, 0.2]],
+            Background->RGBColor[0.8, 1, 0.8],
+            FrameMargins->1,
+            FrameStyle->RGBColor[0.5, 0.8, 0.5]], " ", "+", " ", 
+           FrameBox[
+            StyleBox["R3",
+             FontSize->12,
+             FontWeight->"Bold",
+             FontColor->RGBColor[0.2, 0.5, 0.2]],
+            Background->RGBColor[0.8, 1, 0.8],
+            FrameMargins->1,
+            FrameStyle->RGBColor[0.5, 0.8, 0.5]]}]}],
+         FontWeight->"Plain",
+         FontColor->GrayLevel[0.3]], "\t", 
+        StyleBox["*)",
+         FontColor->GrayLevel[0.9]]}], "\[IndentingNewLine]", "\t\t\t", 
+       RowBox[{"{", 
+        RowBox[{"13", ",", "1", ",", "2", ",", "3", ",", "1"}], "}"}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{
+        StyleBox["(*",
+         FontColor->GrayLevel[0.9]], "\t", 
+        StyleBox[
+         RowBox[{"--", 
+          RowBox[{"--", 
+           RowBox[{"--", 
+            RowBox[{"--", 
+             RowBox[{"--", 
+              RowBox[{"--", 
+               RowBox[{"--", 
+                RowBox[{"--", 
+                 RowBox[{"--", 
+                  RowBox[{"--", 
+                   RowBox[{"--", 
+                    RowBox[{"--", "--"}]}]}]}]}]}]}]}]}]}]}]}],
+         FontWeight->"Bold",
+         FontSlant->"Italic",
+         FontColor->RGBColor[0, 0.4, 0.9]], "\t", 
+        StyleBox["*)",
+         FontColor->GrayLevel[0.9]]}], "\[IndentingNewLine]", 
+       RowBox[{
+        StyleBox["(*",
+         FontColor->GrayLevel[0.9]], "\t", 
+        StyleBox["8",
+         FontWeight->"Bold",
+         FontSlant->"Italic",
+         FontColor->RGBColor[0, 0.4, 0.9]], "\t", 
+        StyleBox["*)",
+         FontColor->GrayLevel[0.9]]}], 
+       RowBox[{
+        StyleBox["(*",
+         FontColor->GrayLevel[0.9]], "\t", 
+        StyleBox["Return",
+         FontWeight->"Plain",
+         FontColor->GrayLevel[0.3]], "\t", 
+        StyleBox["*)",
+         FontColor->GrayLevel[0.9]]}], "\[IndentingNewLine]", "\t\t\t", 
+       RowBox[{"{", "1", "}"}]}], "\[IndentingNewLine]", "}"}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"Function", "[", 
+      RowBox[{"Null", ",", 
+       FrameBox[
+        StyleBox["\"\<Uncompiled Code omitted\>\"", "Text",
+         StripOnInput->False,
+         LineColor->GrayLevel[0.4],
+         FrontFaceColor->GrayLevel[0.4],
+         BackFaceColor->GrayLevel[0.4],
+         GraphicsColor->GrayLevel[0.4],
+         FontSize->12,
+         FontColor->GrayLevel[0.4]],
+        FrameStyle->Hue[0.11, 0.5, 0.85],
+        StripOnInput->False]}], "]"}], ",", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"Failure", "[", 
+       RowBox[{"\"\<Execution Failed\>\"", ",", 
+        RowBox[{
+        "\"\<Message\>\"", "\[Rule]", 
+         "\"\<The compiled code cannot be executed properly.\>\""}]}], "]"}], 
+      "&"}]}], "]"}], "[", "4.", "]"}],
+  FontSize->10]], "Input",
+ CellFrame->True,
+ CellBracketOptions->{"Color"->RGBColor[0.4, 0, 1],
+ "Thickness"->2},
+ Background->GrayLevel[1]],
+
+Cell[BoxData["15.043197504692072`"], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"cf", "[", "4.", "]"}]], "Input"],
+
+Cell[BoxData["15.043197504692072`"], "Output"]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Advanced Example", "Subsubsection"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"cf2", "=", 
+   RowBox[{"Compile", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"{", 
+       RowBox[{"a", ",", "_Real", ",", "1"}], "}"}], "}"}], ",", 
+     RowBox[{"Table", "[", 
+      RowBox[{
+       SqrtBox[
+        RowBox[{"a", "\[LeftDoubleBracket]", "k", "\[RightDoubleBracket]"}]], 
+       ",", 
+       RowBox[{"{", 
+        RowBox[{"k", ",", 
+         RowBox[{"Length", "[", "a", "]"}]}], "}"}]}], "]"}]}], "]"}]}], 
+  ";"}]], "Input"],
+
+Cell[TextData[{
+ "The generated cell is also ",
+ StyleBox["editable",
+  FontWeight->"Bold"],
+ "."
+}], "Text"],
+
+Cell[TextData[{
+ "Notice how the \"",
+ StyleBox["Debug line",
+  FontWeight->"Bold"],
+ "\" is inserted into the bytecode block, especially"
+}], "Text"],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+how the values of registers are returned to the external functions, and\
+\>", "ItemNumbered"],
+
+Cell[TextData[{
+ "how the insertion affects the jump offset in the \[OpenCurlyDoubleQuote]",
+ StyleBox["GOTO",
+  FontWeight->"Bold"],
+ "\[CloseCurlyDoubleQuote] lines."
+}], "ItemNumbered"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{"cf2", "//", "CompileNoting"}]], "Input"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ StyleBox[
+  RowBox[{
+   RowBox[{"CompiledFunction", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"10", ",", "10.2`", ",", "5468"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"{", 
+       RowBox[{"_Real", ",", "1"}], "}"}], "}"}], ",", "\[IndentingNewLine]", 
+     RowBox[{"{", "\[IndentingNewLine]", 
+      RowBox[{
+       StyleBox["(*",
+        FontColor->GrayLevel[0.9]], "\t", 
+       RowBox[{"Input", " ", 
+        RowBox[{"registers", ":"}]}], "\t", 
+       StyleBox["*)",
+        FontColor->GrayLevel[0.9]]}], "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"3", ",", "1", ",", "0"}], "}"}], 
+       RowBox[{
+        StyleBox["(*",
+         FontColor->GrayLevel[0.9]], "\t", 
+        FrameBox[
+         StyleBox[
+          RowBox[{
+           RowBox[{"T0", ":"}], 
+           SuperscriptBox[
+            FrameBox[
+             StyleBox["R",
+              FontSize->12,
+              FontWeight->"Bold",
+              FontColor->RGBColor[0.2, 0.5, 0.2]],
+             Background->RGBColor[0.8, 1, 0.8],
+             FrameMargins->1,
+             FrameStyle->RGBColor[0.5, 0.8, 0.5]], "1"]}],
+          FontSize->12,
+          FontWeight->"Bold",
+          FontColor->RGBColor[0, 0.3, 0.5]],
+         Background->RGBColor[0.8, 1, 1],
+         FrameMargins->1,
+         FrameStyle->RGBColor[0.5, 0.7, 0.7]], "\t", 
+        StyleBox["*)",
+         FontColor->GrayLevel[0.9]]}], ",", "\[IndentingNewLine]", 
+       "\[IndentingNewLine]", 
+       RowBox[{
+        StyleBox["(*",
+         FontColor->GrayLevel[0.9]], "\t", 
+        RowBox[{"Output", " ", 
+         RowBox[{"register", ":"}]}], "\t", 
+        StyleBox["*)",
+         FontColor->GrayLevel[0.9]]}], "\[IndentingNewLine]", 
+       RowBox[{"{", 
+        RowBox[{"3", ",", "1", ",", "1"}], "}"}]}], 
+      RowBox[{
+       StyleBox["(*",
+        FontColor->GrayLevel[0.9]], "\t", 
+       FrameBox[
+        StyleBox[
+         RowBox[{
+          RowBox[{"T1", ":"}], 
+          SuperscriptBox[
+           FrameBox[
+            StyleBox["R",
+             FontSize->12,
+             FontWeight->"Bold",
+             FontColor->RGBColor[0.2, 0.5, 0.2]],
+            Background->RGBColor[0.8, 1, 0.8],
+            FrameMargins->1,
+            FrameStyle->RGBColor[0.5, 0.8, 0.5]], "1"]}],
+         FontSize->12,
+         FontWeight->"Bold",
+         FontColor->RGBColor[0, 0.3, 0.5]],
+        Background->RGBColor[0.8, 1, 1],
+        FrameMargins->1,
+        FrameStyle->RGBColor[0.5, 0.7, 0.7]], "\t", 
+       StyleBox["*)",
+        FontColor->GrayLevel[0.9]]}], "\[IndentingNewLine]", "}"}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"{", "\[IndentingNewLine]", 
+      RowBox[{
+       StyleBox["(*",
+        FontColor->GrayLevel[0.9]], "\t", 
+       RowBox[{
+        RowBox[{"Constant", 
+         RowBox[{"(", "s", ")"}], " ", "in", " ", "register", 
+         RowBox[{"(", "s", ")"}]}], ":"}], "\t", 
+       StyleBox["*)",
+        FontColor->GrayLevel[0.9]]}], "\[IndentingNewLine]", 
+      RowBox[{
+       StyleBox["(*",
+        FontColor->GrayLevel[0.9]], GridBox[{
+         {"0"},
+         {"\[DoubleDownArrow]"},
+         {
+          FrameBox[
+           StyleBox["I5",
+            FontSize->12,
+            FontWeight->"Bold",
+            FontColor->RGBColor[0.2, 0.5, 0.2]],
+           Background->RGBColor[0.8, 1, 0.8],
+           FrameMargins->1,
+           FrameStyle->RGBColor[0.5, 0.8, 0.5]]}
+        },
+        DefaultBaseStyle->"Column",
+        GridBoxAlignment->{"Columns" -> {{Center}}},
+        GridBoxFrame->{"Columns" -> None, "Rows" -> None},
+        GridBoxItemSize->{
+         "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], 
+       StyleBox["*)",
+        FontColor->GrayLevel[0.9]]}], 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"0", ",", 
+         RowBox[{"{", 
+          RowBox[{"2", ",", "0", ",", "5"}], "}"}]}], "}"}], ",", 
+       RowBox[{
+        StyleBox["(*",
+         FontColor->GrayLevel[0.9]], GridBox[{
+          {"1"},
+          {"\[DoubleDownArrow]"},
+          {
+           FrameBox[
+            StyleBox["I3",
+             FontSize->12,
+             FontWeight->"Bold",
+             FontColor->RGBColor[0.2, 0.5, 0.2]],
+            Background->RGBColor[0.8, 1, 0.8],
+            FrameMargins->1,
+            FrameStyle->RGBColor[0.5, 0.8, 0.5]]}
+         },
+         DefaultBaseStyle->"Column",
+         GridBoxAlignment->{"Columns" -> {{Center}}},
+         GridBoxFrame->{"Columns" -> None, "Rows" -> None},
+         GridBoxItemSize->{
+          "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], 
+        StyleBox["*)",
+         FontColor->GrayLevel[0.9]]}], 
+       RowBox[{"{", 
+        RowBox[{"1", ",", 
+         RowBox[{"{", 
+          RowBox[{"2", ",", "0", ",", "3"}], "}"}]}], "}"}]}], 
+      "\[IndentingNewLine]", "}"}], ",", "\[IndentingNewLine]", 
+     RowBox[{"{", "\[IndentingNewLine]", 
+      RowBox[{
+       StyleBox["(*",
+        FontColor->GrayLevel[0.9]], "\t", 
+       RowBox[{"number", " ", "of", " ", 
+        RowBox[{"registers", ":"}]}], "\t", 
+       StyleBox["*)",
+        FontColor->GrayLevel[0.9]]}], "\[IndentingNewLine]", 
+      RowBox[{
+       StyleBox["(*",
+        FontColor->GrayLevel[0.9]], "\t", 
+       FrameBox[
+        StyleBox["B",
+         FontSize->12,
+         FontWeight->"Bold",
+         FontColor->RGBColor[0.5, 0.2, 0.5]],
+        Background->RGBColor[1, 0.8, 1],
+        FrameMargins->1,
+        FrameStyle->RGBColor[0.8, 0.5, 0.8]], 
+       StyleBox["*)",
+        FontColor->GrayLevel[0.9]]}], 
+      RowBox[{"0", ",", 
+       RowBox[{
+        StyleBox["(*",
+         FontColor->GrayLevel[0.9]], "\t", 
+        FrameBox[
+         StyleBox["I",
+          FontSize->12,
+          FontWeight->"Bold",
+          FontColor->RGBColor[0.2, 0.5, 0.2]],
+         Background->RGBColor[0.8, 1, 0.8],
+         FrameMargins->1,
+         FrameStyle->RGBColor[0.5, 0.8, 0.5]], 
+        StyleBox["*)",
+         FontColor->GrayLevel[0.9]]}], "7", ",", 
+       RowBox[{
+        StyleBox["(*",
+         FontColor->GrayLevel[0.9]], "\t", 
+        FrameBox[
+         StyleBox["R",
+          FontSize->12,
+          FontWeight->"Bold",
+          FontColor->RGBColor[0.2, 0.5, 0.2]],
+         Background->RGBColor[0.8, 1, 0.8],
+         FrameMargins->1,
+         FrameStyle->RGBColor[0.5, 0.8, 0.5]], 
+        StyleBox["*)",
+         FontColor->GrayLevel[0.9]]}], "3", ",", 
+       RowBox[{
+        StyleBox["(*",
+         FontColor->GrayLevel[0.9]], "\t", 
+        FrameBox[
+         StyleBox["C",
+          FontSize->12,
+          FontWeight->"Bold",
+          FontColor->RGBColor[0.2, 0.5, 0.2]],
+         Background->RGBColor[0.8, 1, 0.8],
+         FrameMargins->1,
+         FrameStyle->RGBColor[0.5, 0.8, 0.5]], 
+        StyleBox["*)",
+         FontColor->GrayLevel[0.9]]}], "0", ",", 
+       RowBox[{
+        StyleBox["(*",
+         FontColor->GrayLevel[0.9]], "\t", 
+        FrameBox[
+         StyleBox["T",
+          FontSize->12,
+          FontWeight->"Bold",
+          FontColor->RGBColor[0, 0.3, 0.5]],
+         Background->RGBColor[0.8, 1, 1],
+         FrameMargins->1,
+         FrameStyle->RGBColor[0.5, 0.7, 0.7]], 
+        StyleBox["*)",
+         FontColor->GrayLevel[0.9]]}], "2"}], "\[IndentingNewLine]", "}"}], 
+     ",", "\[IndentingNewLine]", 
+     RowBox[{"{", "\[IndentingNewLine]", 
+      RowBox[{
+       StyleBox["(*",
+        FontColor->GrayLevel[0.9]], "\t", 
+       RowBox[{"bytecode", " ", 
+        RowBox[{"block", ":"}]}], "\t", 
+       StyleBox["*)",
+        FontColor->GrayLevel[0.9]]}], "\[IndentingNewLine]", 
+      RowBox[{
+       StyleBox["(*",
+        FontColor->GrayLevel[0.9]], "\t", 
+       StyleBox["1",
+        FontWeight->"Bold",
+        FontSlant->"Italic",
+        FontColor->RGBColor[0, 0.4, 0.9]], "\t", 
+       StyleBox["*)",
+        FontColor->GrayLevel[0.9]]}], 
+      RowBox[{
+       StyleBox["(*",
+        FontColor->GrayLevel[0.9]], "\t", 
+       StyleBox[
+        RowBox[{
+         FrameBox[
+          StyleBox["I2",
+           FontSize->12,
+           FontWeight->"Bold",
+           FontColor->RGBColor[0.2, 0.5, 0.2]],
+          Background->RGBColor[0.8, 1, 0.8],
+          FrameMargins->1,
+          FrameStyle->RGBColor[0.5, 0.8, 0.5]], " ", "=", " ", 
+         RowBox[{"Length", "[", " ", 
+          FrameBox[
+           StyleBox[
+            RowBox[{
+             RowBox[{"T0", ":"}], 
+             SuperscriptBox[
+              FrameBox[
+               StyleBox["R",
+                FontSize->12,
+                FontWeight->"Bold",
+                FontColor->RGBColor[0.2, 0.5, 0.2]],
+               Background->RGBColor[0.8, 1, 0.8],
+               FrameMargins->1,
+               FrameStyle->RGBColor[0.5, 0.8, 0.5]], "1"]}],
+            FontSize->12,
+            FontWeight->"Bold",
+            FontColor->RGBColor[0, 0.3, 0.5]],
+           Background->RGBColor[0.8, 1, 1],
+           FrameMargins->1,
+           FrameStyle->RGBColor[0.5, 0.7, 0.7]], "]"}]}],
+        FontWeight->"Plain",
+        FontColor->GrayLevel[0.3]], "\t", 
+       StyleBox["*)",
+        FontColor->GrayLevel[0.9]]}], "\[IndentingNewLine]", "\t\t\t", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"33", ",", "0", ",", "2"}], "}"}], ",", "\[IndentingNewLine]", 
+       RowBox[{
+        StyleBox["(*",
+         FontColor->GrayLevel[0.9]], "\t", 
+        StyleBox[
+         RowBox[{"--", 
+          RowBox[{"--", 
+           RowBox[{"--", 
+            RowBox[{"--", 
+             RowBox[{"--", 
+              RowBox[{"--", 
+               RowBox[{"--", 
+                RowBox[{"--", 
+                 RowBox[{"--", 
+                  RowBox[{"--", 
+                   RowBox[{"--", 
+                    RowBox[{"--", "--"}]}]}]}]}]}]}]}]}]}]}]}],
+         FontWeight->"Bold",
+         FontSlant->"Italic",
+         FontColor->RGBColor[0, 0.4, 0.9]], "\t", 
+        StyleBox["*)",
+         FontColor->GrayLevel[0.9]]}], "\[IndentingNewLine]", 
+       RowBox[{
+        StyleBox["(*",
+         FontColor->GrayLevel[0.9]], "\t", 
+        StyleBox["2",
+         FontWeight->"Bold",
+         FontSlant->"Italic",
+         FontColor->RGBColor[0, 0.4, 0.9]], "\t", 
+        StyleBox["*)",
+         FontColor->GrayLevel[0.9]]}], 
+       RowBox[{
+        StyleBox["(*",
+         FontColor->GrayLevel[0.9]], "\t", 
+        StyleBox[
+         RowBox[{
+          FrameBox[
+           StyleBox["I4",
+            FontSize->12,
+            FontWeight->"Bold",
+            FontColor->RGBColor[0.2, 0.5, 0.2]],
+           Background->RGBColor[0.8, 1, 0.8],
+           FrameMargins->1,
+           FrameStyle->RGBColor[0.5, 0.8, 0.5]], " ", "=", " ", 
+          FrameBox[
+           StyleBox["I5",
+            FontSize->12,
+            FontWeight->"Bold",
+            FontColor->RGBColor[0.2, 0.5, 0.2]],
+           Background->RGBColor[0.8, 1, 0.8],
+           FrameMargins->1,
+           FrameStyle->RGBColor[0.5, 0.8, 0.5]]}],
+         FontWeight->"Plain",
+         FontColor->GrayLevel[0.3]], "\t", 
+        StyleBox["*)",
+         FontColor->GrayLevel[0.9]]}], "\[IndentingNewLine]", "\t\t\t", 
+       RowBox[{"{", 
+        RowBox[{"6", ",", "5", ",", "4"}], "}"}], ",", "\[IndentingNewLine]", 
+       RowBox[{
+        StyleBox["(*",
+         FontColor->GrayLevel[0.9]], "\t", 
+        StyleBox[
+         RowBox[{"--", 
+          RowBox[{"--", 
+           RowBox[{"--", 
+            RowBox[{"--", 
+             RowBox[{"--", 
+              RowBox[{"--", 
+               RowBox[{"--", 
+                RowBox[{"--", 
+                 RowBox[{"--", 
+                  RowBox[{"--", 
+                   RowBox[{"--", 
+                    RowBox[{"--", "--"}]}]}]}]}]}]}]}]}]}]}]}],
+         FontWeight->"Bold",
+         FontSlant->"Italic",
+         FontColor->RGBColor[0, 0.4, 0.9]], "\t", 
+        StyleBox["*)",
+         FontColor->GrayLevel[0.9]]}], "\[IndentingNewLine]", 
+       RowBox[{
+        StyleBox["(*",
+         FontColor->GrayLevel[0.9]], "\t", 
+        StyleBox["3",
+         FontWeight->"Bold",
+         FontSlant->"Italic",
+         FontColor->RGBColor[0, 0.4, 0.9]], "\t", 
+        StyleBox["*)",
+         FontColor->GrayLevel[0.9]]}], 
+       RowBox[{
+        StyleBox["(*",
+         FontColor->GrayLevel[0.9]], "\t", 
+        StyleBox[
+         RowBox[{
+          FrameBox[
+           StyleBox[
+            RowBox[{
+             RowBox[{"T1", ":"}], 
+             SuperscriptBox[
+              FrameBox[
+               StyleBox["R",
+                FontSize->12,
+                FontWeight->"Bold",
+                FontColor->RGBColor[0.2, 0.5, 0.2]],
+               Background->RGBColor[0.8, 1, 0.8],
+               FrameMargins->1,
+               FrameStyle->RGBColor[0.5, 0.8, 0.5]], "1"]}],
+            FontSize->12,
+            FontWeight->"Bold",
+            FontColor->RGBColor[0, 0.3, 0.5]],
+           Background->RGBColor[0.8, 1, 1],
+           FrameMargins->1,
+           FrameStyle->RGBColor[0.5, 0.7, 0.7]], " ", "=", " ", 
+          RowBox[{"Table", "[", " ", 
+           FrameBox[
+            StyleBox["I2",
+             FontSize->12,
+             FontWeight->"Bold",
+             FontColor->RGBColor[0.2, 0.5, 0.2]],
+            Background->RGBColor[0.8, 1, 0.8],
+            FrameMargins->1,
+            FrameStyle->RGBColor[0.5, 0.8, 0.5]], "]"}]}],
+         FontWeight->"Plain",
+         FontColor->GrayLevel[0.3]], "\t", 
+        StyleBox["*)",
+         FontColor->GrayLevel[0.9]]}], "\[IndentingNewLine]", "\t\t\t", 
+       RowBox[{"{", 
+        RowBox[{"35", ",", "2", ",", "3", ",", "1"}], "}"}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{
+        StyleBox["(*",
+         FontColor->GrayLevel[0.9]], "\t", 
+        StyleBox[
+         RowBox[{"--", 
+          RowBox[{"--", 
+           RowBox[{"--", 
+            RowBox[{"--", 
+             RowBox[{"--", 
+              RowBox[{"--", 
+               RowBox[{"--", 
+                RowBox[{"--", 
+                 RowBox[{"--", 
+                  RowBox[{"--", 
+                   RowBox[{"--", 
+                    RowBox[{"--", "--"}]}]}]}]}]}]}]}]}]}]}]}],
+         FontWeight->"Bold",
+         FontSlant->"Italic",
+         FontColor->RGBColor[0, 0.4, 0.9]], "\t", 
+        StyleBox["*)",
+         FontColor->GrayLevel[0.9]]}], 
+       StyleBox["\[IndentingNewLine]",
+        FontColor->GrayLevel[0.9]], 
+       RowBox[{
+        StyleBox["(*",
+         FontColor->GrayLevel[0.9]], 
+        StyleBox[
+         RowBox[{
+          StyleBox[
+           RowBox[{"/=", 
+            RowBox[{"===", "===", "===", "==="}]}],
+           FontSlant->"Italic"], 
+          StyleBox["=",
+           FontSlant->"Italic"], 
+          RowBox[{
+           StyleBox[
+            RowBox[{
+             RowBox[{"===", "===", "===", "=="}], "===", "===", "===", "===", 
+             "===", "===", "===", "===", "===", "==="}],
+            FontSlant->"Italic"], 
+           StyleBox["=",
+            FontSlant->"Italic"], 
+           RowBox[{
+            StyleBox["\[Equal]",
+             FontSlant->"Italic"], 
+            StyleBox["\\",
+             FontSlant->"Plain"]}]}]}],
+         FontColor->RGBColor[1, 0, 0]], 
+        StyleBox["*)",
+         FontColor->GrayLevel[0.9]]}], 
+       StyleBox["\[IndentingNewLine]",
+        FontColor->GrayLevel[0.9]], 
+       RowBox[{
+        StyleBox["(*",
+         FontColor->GrayLevel[0.9]], 
+        StyleBox[
+         FrameBox[
+          StyleBox[
+           RowBox[{"Debug", " ", 
+            RowBox[{"line", ":"}]}],
+           FontSize->14,
+           FontWeight->"Bold",
+           FontColor->RGBColor[0.5, 0.2, 0.2]],
+          Background->RGBColor[1, 0.8, 0.8],
+          FrameMargins->1,
+          FrameStyle->RGBColor[0.8, 0.5, 0.5]],
+         FontWeight->"Plain",
+         FontColor->GrayLevel[0.3]], 
+        StyleBox["*)",
+         FontColor->GrayLevel[0.9]]}], "\[IndentingNewLine]", 
+       RowBox[{"{", 
+        RowBox[{"46", ",", 
+         RowBox[{"Function", "[", 
+          RowBox[{
+           RowBox[{"{", "a", "}"}], ",", "\[IndentingNewLine]", 
+           RowBox[{
+            RowBox[{"Print", "[", "\"\<Initialization of T1:\>\"", "]"}], ";",
+             "\[IndentingNewLine]", 
+            RowBox[{"Print", "[", 
+             RowBox[{"Row", "[", 
+              RowBox[{
+               RowBox[{"{", 
+                RowBox[{"\"\<T1\>\"", ",", "db$T1"}], "}"}], ",", 
+               "\"\< :  \>\""}], "]"}], "]"}], ";", "\[IndentingNewLine]", 
+            RowBox[{"Print", "[", 
+             RowBox[{
+              RowBox[{"ConstantArray", "[", 
+               RowBox[{"\"\<-\>\"", ",", "20"}], "]"}], "//", "StringJoin"}], 
+             "]"}], ";"}]}], "\[IndentingNewLine]", "]"}], ",", 
+         "\[IndentingNewLine]", 
+         RowBox[{"{", 
+          RowBox[{"db$T1", ",", "3", ",", "1", ",", "1", ",", "Module"}], 
+          "}"}], ",", "\[IndentingNewLine]", "3", ",", "1", ",", "0", ",", 
+         "6", ",", "0", ",", "17"}], "}"}], ",", "\[IndentingNewLine]", 
+       RowBox[{
+        StyleBox["(*",
+         FontColor->GrayLevel[0.9]], 
+        StyleBox[
+         RowBox[{
+          RowBox[{
+           StyleBox["\\",
+            FontSlant->"Plain"], 
+           StyleBox[
+            RowBox[{"===", "===", 
+             RowBox[{"==", 
+              RowBox[{"===", "===", "==="}]}]}],
+            FontSlant->"Italic"]}], 
+          StyleBox["=",
+           FontSlant->"Italic"], 
+          StyleBox[
+           RowBox[{
+            RowBox[{
+             RowBox[{"===", "===", "===", "=="}], "===", "===", "===", "===", 
+             "===", "===", "===", "===", "==="}], "=", "/"}],
+           FontSlant->"Italic"]}],
+         FontColor->RGBColor[1, 0, 0]], 
+        StyleBox["*)",
+         FontColor->GrayLevel[0.9]]}], "\[IndentingNewLine]", 
+       RowBox[{
+        StyleBox["(*",
+         FontColor->GrayLevel[0.9]], "\t", 
+        StyleBox["4",
+         FontWeight->"Bold",
+         FontSlant->"Italic",
+         FontColor->RGBColor[0, 0.4, 0.9]], "\t", 
+        StyleBox["*)",
+         FontColor->GrayLevel[0.9]]}], 
+       RowBox[{
+        StyleBox["(*",
+         FontColor->GrayLevel[0.9]], "\t", 
+        StyleBox[
+         RowBox[{
+          FrameBox[
+           StyleBox["I6",
+            FontSize->12,
+            FontWeight->"Bold",
+            FontColor->RGBColor[0.2, 0.5, 0.2]],
+           Background->RGBColor[0.8, 1, 0.8],
+           FrameMargins->1,
+           FrameStyle->RGBColor[0.5, 0.8, 0.5]], " ", "=", " ", 
+          FrameBox[
+           StyleBox["I5",
+            FontSize->12,
+            FontWeight->"Bold",
+            FontColor->RGBColor[0.2, 0.5, 0.2]],
+           Background->RGBColor[0.8, 1, 0.8],
+           FrameMargins->1,
+           FrameStyle->RGBColor[0.5, 0.8, 0.5]]}],
+         FontWeight->"Plain",
+         FontColor->GrayLevel[0.3]], "\t", 
+        StyleBox["*)",
+         FontColor->GrayLevel[0.9]]}], "\[IndentingNewLine]", "\t\t\t", 
+       RowBox[{"{", 
+        RowBox[{"6", ",", "5", ",", "6"}], "}"}], ",", "\[IndentingNewLine]", 
+       RowBox[{
+        StyleBox["(*",
+         FontColor->GrayLevel[0.9]], "\t", 
+        StyleBox[
+         RowBox[{"--", 
+          RowBox[{"--", 
+           RowBox[{"--", 
+            RowBox[{"--", 
+             RowBox[{"--", 
+              RowBox[{"--", 
+               RowBox[{"--", 
+                RowBox[{"--", 
+                 RowBox[{"--", 
+                  RowBox[{"--", 
+                   RowBox[{"--", 
+                    RowBox[{"--", "--"}]}]}]}]}]}]}]}]}]}]}]}],
+         FontWeight->"Bold",
+         FontSlant->"Italic",
+         FontColor->RGBColor[0, 0.4, 0.9]], "\t", 
+        StyleBox["*)",
+         FontColor->GrayLevel[0.9]]}], "\[IndentingNewLine]", 
+       RowBox[{
+        StyleBox["(*",
+         FontColor->GrayLevel[0.9]], "\t", 
+        StyleBox["5",
+         FontWeight->"Bold",
+         FontSlant->"Italic",
+         FontColor->RGBColor[0, 0.4, 0.9]], "\t", 
+        StyleBox["*)",
+         FontColor->GrayLevel[0.9]]}], 
+       RowBox[{
+        StyleBox["(*",
+         FontColor->GrayLevel[0.9]], "\t", 
+        StyleBox[
+         RowBox[{" ", 
+          RowBox[{
+           StyleBox["GOTO",
+            FontSize->14,
+            FontWeight->"Bold",
+            FontColor->RGBColor[0.8, 0, 0]], " ", 
+           StyleBox["9",
+            FontWeight->"Bold",
+            FontSlant->"Italic",
+            FontColor->RGBColor[0, 0.4, 0.9]]}]}],
+         FontWeight->"Plain",
+         FontColor->GrayLevel[0.3]], "\t", 
+        StyleBox["*)",
+         FontColor->GrayLevel[0.9]]}], "\[IndentingNewLine]", "\t\t\t", 
+       RowBox[{"{", 
+        RowBox[{"3", ",", "5"}], "}"}], ",", "\[IndentingNewLine]", 
+       RowBox[{
+        StyleBox["(*",
+         FontColor->GrayLevel[0.9]], "\t", 
+        StyleBox[
+         RowBox[{"--", 
+          RowBox[{"--", 
+           RowBox[{"--", 
+            RowBox[{"--", 
+             RowBox[{"--", 
+              RowBox[{"--", 
+               RowBox[{"--", 
+                RowBox[{"--", 
+                 RowBox[{"--", 
+                  RowBox[{"--", 
+                   RowBox[{"--", 
+                    RowBox[{"--", "--"}]}]}]}]}]}]}]}]}]}]}]}],
+         FontWeight->"Bold",
+         FontSlant->"Italic",
+         FontColor->RGBColor[0, 0.4, 0.9]], "\t", 
+        StyleBox["*)",
+         FontColor->GrayLevel[0.9]]}], "\[IndentingNewLine]", 
+       RowBox[{
+        StyleBox["(*",
+         FontColor->GrayLevel[0.9]], "\t", 
+        StyleBox["6",
+         FontWeight->"Bold",
+         FontSlant->"Italic",
+         FontColor->RGBColor[0, 0.4, 0.9]], "\t", 
+        StyleBox["*)",
+         FontColor->GrayLevel[0.9]]}], 
+       RowBox[{
+        StyleBox["(*",
+         FontColor->GrayLevel[0.9]], "\t", 
+        StyleBox[
+         RowBox[{
+          FrameBox[
+           StyleBox["R0",
+            FontSize->12,
+            FontWeight->"Bold",
+            FontColor->RGBColor[0.2, 0.5, 0.2]],
+           Background->RGBColor[0.8, 1, 0.8],
+           FrameMargins->1,
+           FrameStyle->RGBColor[0.5, 0.8, 0.5]], " ", "=", " ", 
+          RowBox[{"Part", "[", " ", 
+           RowBox[{
+            FrameBox[
+             StyleBox[
+              RowBox[{
+               RowBox[{"T0", ":"}], 
+               SuperscriptBox[
+                FrameBox[
+                 StyleBox["R",
+                  FontSize->12,
+                  FontWeight->"Bold",
+                  FontColor->RGBColor[0.2, 0.5, 0.2]],
+                 Background->RGBColor[0.8, 1, 0.8],
+                 FrameMargins->1,
+                 FrameStyle->RGBColor[0.5, 0.8, 0.5]], "1"]}],
+              FontSize->12,
+              FontWeight->"Bold",
+              FontColor->RGBColor[0, 0.3, 0.5]],
+             Background->RGBColor[0.8, 1, 1],
+             FrameMargins->1,
+             FrameStyle->RGBColor[0.5, 0.7, 0.7]], ",", " ", 
+            FrameBox[
+             StyleBox["I6",
+              FontSize->12,
+              FontWeight->"Bold",
+              FontColor->RGBColor[0.2, 0.5, 0.2]],
+             Background->RGBColor[0.8, 1, 0.8],
+             FrameMargins->1,
+             FrameStyle->RGBColor[0.5, 0.8, 0.5]]}], "]"}]}],
+         FontWeight->"Plain",
+         FontColor->GrayLevel[0.3]], "\t", 
+        StyleBox["*)",
+         FontColor->GrayLevel[0.9]]}], "\[IndentingNewLine]", "\t\t\t", 
+       RowBox[{"{", 
+        RowBox[{"38", ",", "0", ",", "0", ",", "6", ",", "0", ",", "0"}], 
+        "}"}], ",", "\[IndentingNewLine]", 
+       RowBox[{
+        StyleBox["(*",
+         FontColor->GrayLevel[0.9]], "\t", 
+        StyleBox[
+         RowBox[{"--", 
+          RowBox[{"--", 
+           RowBox[{"--", 
+            RowBox[{"--", 
+             RowBox[{"--", 
+              RowBox[{"--", 
+               RowBox[{"--", 
+                RowBox[{"--", 
+                 RowBox[{"--", 
+                  RowBox[{"--", 
+                   RowBox[{"--", 
+                    RowBox[{"--", "--"}]}]}]}]}]}]}]}]}]}]}]}],
+         FontWeight->"Bold",
+         FontSlant->"Italic",
+         FontColor->RGBColor[0, 0.4, 0.9]], "\t", 
+        StyleBox["*)",
+         FontColor->GrayLevel[0.9]]}], "\[IndentingNewLine]", 
+       RowBox[{
+        StyleBox["(*",
+         FontColor->GrayLevel[0.9]], "\t", 
+        StyleBox["7",
+         FontWeight->"Bold",
+         FontSlant->"Italic",
+         FontColor->RGBColor[0, 0.4, 0.9]], "\t", 
+        StyleBox["*)",
+         FontColor->GrayLevel[0.9]]}], 
+       RowBox[{
+        StyleBox["(*",
+         FontColor->GrayLevel[0.9]], "\t", 
+        StyleBox[
+         RowBox[{
+          FrameBox[
+           StyleBox["R2",
+            FontSize->12,
+            FontWeight->"Bold",
+            FontColor->RGBColor[0.2, 0.5, 0.2]],
+           Background->RGBColor[0.8, 1, 0.8],
+           FrameMargins->1,
+           FrameStyle->RGBColor[0.5, 0.8, 0.5]], " ", "=", " ", 
+          RowBox[{"Sqrt", "[", " ", 
+           FrameBox[
+            StyleBox["R0",
+             FontSize->12,
+             FontWeight->"Bold",
+             FontColor->RGBColor[0.2, 0.5, 0.2]],
+            Background->RGBColor[0.8, 1, 0.8],
+            FrameMargins->1,
+            FrameStyle->RGBColor[0.5, 0.8, 0.5]], "]"}]}],
+         FontWeight->"Plain",
+         FontColor->GrayLevel[0.3]], "\t", 
+        StyleBox["*)",
+         FontColor->GrayLevel[0.9]]}], "\[IndentingNewLine]", "\t\t\t", 
+       RowBox[{"{", 
+        RowBox[{
+        "40", ",", "57", ",", "3", ",", "0", ",", "0", ",", "3", ",", "0", 
+         ",", "2"}], "}"}], ",", "\[IndentingNewLine]", 
+       RowBox[{
+        StyleBox["(*",
+         FontColor->GrayLevel[0.9]], "\t", 
+        StyleBox[
+         RowBox[{"--", 
+          RowBox[{"--", 
+           RowBox[{"--", 
+            RowBox[{"--", 
+             RowBox[{"--", 
+              RowBox[{"--", 
+               RowBox[{"--", 
+                RowBox[{"--", 
+                 RowBox[{"--", 
+                  RowBox[{"--", 
+                   RowBox[{"--", 
+                    RowBox[{"--", "--"}]}]}]}]}]}]}]}]}]}]}]}],
+         FontWeight->"Bold",
+         FontSlant->"Italic",
+         FontColor->RGBColor[0, 0.4, 0.9]], "\t", 
+        StyleBox["*)",
+         FontColor->GrayLevel[0.9]]}], "\[IndentingNewLine]", 
+       RowBox[{
+        StyleBox["(*",
+         FontColor->GrayLevel[0.9]], "\t", 
+        StyleBox["8",
+         FontWeight->"Bold",
+         FontSlant->"Italic",
+         FontColor->RGBColor[0, 0.4, 0.9]], "\t", 
+        StyleBox["*)",
+         FontColor->GrayLevel[0.9]]}], 
+       RowBox[{
+        StyleBox["(*",
+         FontColor->GrayLevel[0.9]], "\t", 
+        StyleBox[
+         RowBox[{
+          RowBox[{"Element", "[", " ", 
+           RowBox[{
+            FrameBox[
+             StyleBox[
+              RowBox[{
+               RowBox[{"T1", ":"}], 
+               SuperscriptBox[
+                FrameBox[
+                 StyleBox["R",
+                  FontSize->12,
+                  FontWeight->"Bold",
+                  FontColor->RGBColor[0.2, 0.5, 0.2]],
+                 Background->RGBColor[0.8, 1, 0.8],
+                 FrameMargins->1,
+                 FrameStyle->RGBColor[0.5, 0.8, 0.5]], "1"]}],
+              FontSize->12,
+              FontWeight->"Bold",
+              FontColor->RGBColor[0, 0.3, 0.5]],
+             Background->RGBColor[0.8, 1, 1],
+             FrameMargins->1,
+             FrameStyle->RGBColor[0.5, 0.7, 0.7]], ",", " ", 
+            FrameBox[
+             StyleBox["I4",
+              FontSize->12,
+              FontWeight->"Bold",
+              FontColor->RGBColor[0.2, 0.5, 0.2]],
+             Background->RGBColor[0.8, 1, 0.8],
+             FrameMargins->1,
+             FrameStyle->RGBColor[0.5, 0.8, 0.5]]}], "]"}], " ", "=", " ", 
+          FrameBox[
+           StyleBox["R2",
+            FontSize->12,
+            FontWeight->"Bold",
+            FontColor->RGBColor[0.2, 0.5, 0.2]],
+           Background->RGBColor[0.8, 1, 0.8],
+           FrameMargins->1,
+           FrameStyle->RGBColor[0.5, 0.8, 0.5]]}],
+         FontWeight->"Plain",
+         FontColor->GrayLevel[0.3]], "\t", 
+        StyleBox["*)",
+         FontColor->GrayLevel[0.9]]}], "\[IndentingNewLine]", "\t\t\t", 
+       RowBox[{"{", 
+        RowBox[{"36", ",", "4", ",", "2", ",", "3", ",", "1"}], "}"}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{
+        StyleBox["(*",
+         FontColor->GrayLevel[0.9]], "\t", 
+        StyleBox[
+         RowBox[{"--", 
+          RowBox[{"--", 
+           RowBox[{"--", 
+            RowBox[{"--", 
+             RowBox[{"--", 
+              RowBox[{"--", 
+               RowBox[{"--", 
+                RowBox[{"--", 
+                 RowBox[{"--", 
+                  RowBox[{"--", 
+                   RowBox[{"--", 
+                    RowBox[{"--", "--"}]}]}]}]}]}]}]}]}]}]}]}],
+         FontWeight->"Bold",
+         FontSlant->"Italic",
+         FontColor->RGBColor[0, 0.4, 0.9]], "\t", 
+        StyleBox["*)",
+         FontColor->GrayLevel[0.9]]}], 
+       StyleBox["\[IndentingNewLine]",
+        FontColor->GrayLevel[0.9]], 
+       RowBox[{
+        StyleBox["(*",
+         FontColor->GrayLevel[0.9]], 
+        StyleBox[
+         RowBox[{
+          StyleBox[
+           RowBox[{"/=", 
+            RowBox[{"===", "===", "===", "==="}]}],
+           FontSlant->"Italic"], 
+          StyleBox["=",
+           FontSlant->"Italic"], 
+          RowBox[{
+           StyleBox[
+            RowBox[{
+             RowBox[{"===", "===", "===", "=="}], "===", "===", "===", "===", 
+             "===", "===", "===", "===", "===", "==="}],
+            FontSlant->"Italic"], 
+           StyleBox["=",
+            FontSlant->"Italic"], 
+           RowBox[{
+            StyleBox["\[Equal]",
+             FontSlant->"Italic"], 
+            StyleBox["\\",
+             FontSlant->"Plain"]}]}]}],
+         FontColor->RGBColor[1, 0, 0]], 
+        StyleBox["*)",
+         FontColor->GrayLevel[0.9]]}], 
+       StyleBox["\[IndentingNewLine]",
+        FontColor->GrayLevel[0.9]], 
+       RowBox[{
+        StyleBox["(*",
+         FontColor->GrayLevel[0.9]], 
+        StyleBox[
+         FrameBox[
+          StyleBox[
+           RowBox[{"Debug", " ", 
+            RowBox[{"line", ":"}]}],
+           FontSize->14,
+           FontWeight->"Bold",
+           FontColor->RGBColor[0.5, 0.2, 0.2]],
+          Background->RGBColor[1, 0.8, 0.8],
+          FrameMargins->1,
+          FrameStyle->RGBColor[0.8, 0.5, 0.5]],
+         FontWeight->"Plain",
+         FontColor->GrayLevel[0.3]], 
+        StyleBox["*)",
+         FontColor->GrayLevel[0.9]]}], "\[IndentingNewLine]", 
+       RowBox[{"{", 
+        RowBox[{"46", ",", 
+         RowBox[{"Function", "[", 
+          RowBox[{
+           RowBox[{"{", "a", "}"}], ",", "\[IndentingNewLine]", 
+           RowBox[{
+            RowBox[{"Print", "[", 
+             RowBox[{"Row", "[", 
+              RowBox[{
+               RowBox[{"{", 
+                RowBox[{"\"\<iteration counter\>\"", ",", "db$I6"}], "}"}], 
+               ",", "\"\< :  \>\""}], "]"}], "]"}], ";", 
+            "\[IndentingNewLine]", 
+            RowBox[{"Print", "[", 
+             RowBox[{"Row", "[", 
+              RowBox[{
+               RowBox[{"{", 
+                RowBox[{"\"\<R2\>\"", ",", "db$R2"}], "}"}], ",", 
+               "\"\< :  \>\""}], "]"}], "]"}], ";", "\[IndentingNewLine]", 
+            RowBox[{"Print", "[", 
+             RowBox[{"Row", "[", 
+              RowBox[{
+               RowBox[{"{", 
+                RowBox[{"\"\<T1\>\"", ",", "db$T1"}], "}"}], ",", 
+               "\"\< :  \>\""}], "]"}], "]"}], ";", "\[IndentingNewLine]", 
+            RowBox[{"Print", "[", 
+             RowBox[{
+              RowBox[{"ConstantArray", "[", 
+               RowBox[{"\"\<-\>\"", ",", "20"}], "]"}], "//", "StringJoin"}], 
+             "]"}], ";"}]}], "\[IndentingNewLine]", "]"}], ",", 
+         "\[IndentingNewLine]", 
+         RowBox[{"{", 
+          RowBox[{"db$I6", ",", "2", ",", "0", ",", "6", ",", "Module"}], 
+          "}"}], ",", "\[IndentingNewLine]", 
+         RowBox[{"{", 
+          RowBox[{"db$R2", ",", "3", ",", "0", ",", "2", ",", "Module"}], 
+          "}"}], ",", "\[IndentingNewLine]", 
+         RowBox[{"{", 
+          RowBox[{"db$T1", ",", "3", ",", "1", ",", "1", ",", "Module"}], 
+          "}"}], ",", "\[IndentingNewLine]", "3", ",", "1", ",", "0", ",", 
+         "6", ",", "0", ",", "17"}], "}"}], ",", "\[IndentingNewLine]", 
+       RowBox[{
+        StyleBox["(*",
+         FontColor->GrayLevel[0.9]], 
+        StyleBox[
+         RowBox[{
+          RowBox[{
+           StyleBox["\\",
+            FontSlant->"Plain"], 
+           StyleBox[
+            RowBox[{"===", "===", 
+             RowBox[{"==", 
+              RowBox[{"===", "===", "==="}]}]}],
+            FontSlant->"Italic"]}], 
+          StyleBox["=",
+           FontSlant->"Italic"], 
+          StyleBox[
+           RowBox[{
+            RowBox[{
+             RowBox[{"===", "===", "===", "=="}], "===", "===", "===", "===", 
+             "===", "===", "===", "===", "==="}], "=", "/"}],
+           FontSlant->"Italic"]}],
+         FontColor->RGBColor[1, 0, 0]], 
+        StyleBox["*)",
+         FontColor->GrayLevel[0.9]]}], "\[IndentingNewLine]", 
+       RowBox[{
+        StyleBox["(*",
+         FontColor->GrayLevel[0.9]], "\t", 
+        StyleBox["9",
+         FontWeight->"Bold",
+         FontSlant->"Italic",
+         FontColor->RGBColor[0, 0.4, 0.9]], "\t", 
+        StyleBox["*)",
+         FontColor->GrayLevel[0.9]]}], 
+       RowBox[{
+        StyleBox["(*",
+         FontColor->GrayLevel[0.9]], "\t", 
+        StyleBox[
+         RowBox[{
+          RowBox[{
+           StyleBox["IF",
+            FontSize->14,
+            FontWeight->"Bold",
+            FontColor->RGBColor[0.8, 0, 0]], "[", " ", 
+           RowBox[{
+            RowBox[{"++", " ", 
+             FrameBox[
+              StyleBox["I6",
+               FontSize->12,
+               FontWeight->"Bold",
+               FontColor->RGBColor[0.2, 0.5, 0.2]],
+              Background->RGBColor[0.8, 1, 0.8],
+              FrameMargins->1,
+              FrameStyle->RGBColor[0.5, 0.8, 0.5]]}], " ", "<=", " ", 
+            FrameBox[
+             StyleBox["I2",
+              FontSize->12,
+              FontWeight->"Bold",
+              FontColor->RGBColor[0.2, 0.5, 0.2]],
+             Background->RGBColor[0.8, 1, 0.8],
+             FrameMargins->1,
+             FrameStyle->RGBColor[0.5, 0.8, 0.5]]}], "]"}], " ", 
+          StyleBox["GOTO",
+           FontSize->14,
+           FontWeight->"Bold",
+           FontColor->RGBColor[0.8, 0, 0]], " ", 
+          StyleBox["6",
+           FontWeight->"Bold",
+           FontSlant->"Italic",
+           FontColor->RGBColor[0, 0.4, 0.9]]}],
+         FontWeight->"Plain",
+         FontColor->GrayLevel[0.3]], "\t", 
+        StyleBox["*)",
+         FontColor->GrayLevel[0.9]]}], "\[IndentingNewLine]", "\t\t\t", 
+       RowBox[{"{", 
+        RowBox[{"4", ",", "6", ",", "2", ",", 
+         RowBox[{"-", "4"}]}], "}"}], ",", "\[IndentingNewLine]", 
+       RowBox[{
+        StyleBox["(*",
+         FontColor->GrayLevel[0.9]], "\t", 
+        StyleBox[
+         RowBox[{"--", 
+          RowBox[{"--", 
+           RowBox[{"--", 
+            RowBox[{"--", 
+             RowBox[{"--", 
+              RowBox[{"--", 
+               RowBox[{"--", 
+                RowBox[{"--", 
+                 RowBox[{"--", 
+                  RowBox[{"--", 
+                   RowBox[{"--", 
+                    RowBox[{"--", "--"}]}]}]}]}]}]}]}]}]}]}]}],
+         FontWeight->"Bold",
+         FontSlant->"Italic",
+         FontColor->RGBColor[0, 0.4, 0.9]], "\t", 
+        StyleBox["*)",
+         FontColor->GrayLevel[0.9]]}], "\[IndentingNewLine]", 
+       RowBox[{
+        StyleBox["(*",
+         FontColor->GrayLevel[0.9]], "\t", 
+        StyleBox["10",
+         FontWeight->"Bold",
+         FontSlant->"Italic",
+         FontColor->RGBColor[0, 0.4, 0.9]], "\t", 
+        StyleBox["*)",
+         FontColor->GrayLevel[0.9]]}], 
+       RowBox[{
+        StyleBox["(*",
+         FontColor->GrayLevel[0.9]], "\t", 
+        StyleBox["Return",
+         FontWeight->"Plain",
+         FontColor->GrayLevel[0.3]], "\t", 
+        StyleBox["*)",
+         FontColor->GrayLevel[0.9]]}], "\[IndentingNewLine]", "\t\t\t", 
+       RowBox[{"{", "1", "}"}]}], "\[IndentingNewLine]", "}"}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"Function", "[", 
+      RowBox[{"Null", ",", 
+       FrameBox[
+        StyleBox["\"\<Uncompiled Code omitted\>\"", "Text",
+         StripOnInput->False,
+         LineColor->GrayLevel[0.4],
+         FrontFaceColor->GrayLevel[0.4],
+         BackFaceColor->GrayLevel[0.4],
+         GraphicsColor->GrayLevel[0.4],
+         FontSize->12,
+         FontColor->GrayLevel[0.4]],
+        FrameStyle->Hue[0.11, 0.5, 0.85],
+        StripOnInput->False]}], "]"}], ",", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"Failure", "[", 
+       RowBox[{"\"\<Execution Failed\>\"", ",", 
+        RowBox[{
+        "\"\<Message\>\"", "\[Rule]", 
+         "\"\<The compiled code cannot be executed properly.\>\""}]}], "]"}], 
+      "&"}]}], "]"}], "[", 
+   RowBox[{"{", 
+    RowBox[{"1.", ",", "2.", ",", "3."}], "}"}], "]"}],
+  FontSize->10]], "Input",
+ CellFrame->True,
+ CellBracketOptions->{"Color"->RGBColor[0.4, 0, 1],
+ "Thickness"->2},
+ Background->GrayLevel[1]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["\<\"Initialization of T1:\"\>"], "Print"],
+
+Cell[BoxData[
+ TemplateBox[{" :  ","\" :  \"","\"T1\"",RowBox[{"{", 
+     RowBox[{"7.19194207`*^-316", ",", "6.6016688`*^-316", ",", "1.`*^-323"}],
+      "}"}]},
+  "RowWithSeparators"]], "Print"],
+
+Cell[BoxData["\<\"--------------------\"\>"], "Print"],
+
+Cell[BoxData[
+ TemplateBox[{" :  ","\" :  \"","\"iteration counter\"","1"},
+  "RowWithSeparators"]], "Print"],
+
+Cell[BoxData[
+ TemplateBox[{" :  ","\" :  \"","\"R2\"","1.`"},
+  "RowWithSeparators"]], "Print"],
+
+Cell[BoxData[
+ TemplateBox[{" :  ","\" :  \"","\"T1\"",RowBox[{"{", 
+     RowBox[{"1.`", ",", "6.6016688`*^-316", ",", "1.`*^-323"}], "}"}]},
+  "RowWithSeparators"]], "Print"],
+
+Cell[BoxData["\<\"--------------------\"\>"], "Print"],
+
+Cell[BoxData[
+ TemplateBox[{" :  ","\" :  \"","\"iteration counter\"","2"},
+  "RowWithSeparators"]], "Print"],
+
+Cell[BoxData[
+ TemplateBox[{" :  ","\" :  \"","\"R2\"","1.4142135623730951`"},
+  "RowWithSeparators"]], "Print"],
+
+Cell[BoxData[
+ TemplateBox[{" :  ","\" :  \"","\"T1\"",RowBox[{"{", 
+     RowBox[{"1.`", ",", "1.4142135623730951`", ",", "1.`*^-323"}], "}"}]},
+  "RowWithSeparators"]], "Print"],
+
+Cell[BoxData["\<\"--------------------\"\>"], "Print"],
+
+Cell[BoxData[
+ TemplateBox[{" :  ","\" :  \"","\"iteration counter\"","3"},
+  "RowWithSeparators"]], "Print"],
+
+Cell[BoxData[
+ TemplateBox[{" :  ","\" :  \"","\"R2\"","1.7320508075688772`"},
+  "RowWithSeparators"]], "Print"],
+
+Cell[BoxData[
+ TemplateBox[{" :  ","\" :  \"","\"T1\"",RowBox[{"{", 
+     RowBox[{"1.`", ",", "1.4142135623730951`", ",", "1.7320508075688772`"}], 
+     "}"}]},
+  "RowWithSeparators"]], "Print"],
+
+Cell[BoxData["\<\"--------------------\"\>"], "Print"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"1.`", ",", "1.4142135623730951`", ",", "1.7320508075688772`"}], 
+  "}"}]], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"cf2", "[", 
+  RowBox[{"{", 
+   RowBox[{"1.", ",", "2.", ",", "3."}], "}"}], "]"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"1.`", ",", "1.4142135623730951`", ",", "1.7320508075688772`"}], 
+  "}"}]], "Output"]
+}, Open  ]]
+}, Closed]]
+},
+WindowSize->{958, 988},
+WindowMargins->{{Automatic, -1}, {Automatic, 0}},
+TrackCellChangeTimes->True,
+FrontEndVersion->"10.2 for Microsoft Windows (64-bit) (July 7, 2015)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{
+ "Info-4898937d-d48d-4cb1-adf5-11bf3b96dd88"->{
+  Cell[733, 29, 1562, 22, 117, "Print",
+   CellTags->"Info-4898937d-d48d-4cb1-adf5-11bf3b96dd88"]}
+ }
+*)
+(*CellTagsIndex
+CellTagsIndex->{
+ {"Info-4898937d-d48d-4cb1-adf5-11bf3b96dd88", 66289, 1987}
+ }
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 41, 0, 34, "Subsubsection"],
+Cell[CellGroupData[{
+Cell[646, 26, 84, 1, 31, "Input"],
+Cell[733, 29, 1562, 22, 117, "Print",
+ CellTags->"Info-4898937d-d48d-4cb1-adf5-11bf3b96dd88"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2344, 57, 38, 0, 34, "Subsubsection"],
+Cell[2385, 59, 364, 12, 46, "Input"],
+Cell[2752, 73, 219, 11, 30, "Text"],
+Cell[2974, 86, 63, 1, 31, "Input"],
+Cell[CellGroupData[{
+Cell[3062, 91, 22234, 657, 987, "Input"],
+Cell[25299, 750, 46, 0, 31, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[25382, 755, 56, 1, 31, "Input"],
+Cell[25441, 758, 46, 0, 31, "Output"]
+}, Open  ]]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[25536, 764, 41, 0, 28, "Subsubsection"],
+Cell[25580, 766, 484, 16, 39, "Input"],
+Cell[26067, 784, 109, 5, 30, "Text"],
+Cell[26179, 791, 150, 5, 30, "Text"],
+Cell[CellGroupData[{
+Cell[26354, 800, 103, 2, 30, "ItemNumbered"],
+Cell[26460, 804, 188, 5, 30, "ItemNumbered"]
+}, Open  ]],
+Cell[26663, 812, 64, 1, 31, "Input"],
+Cell[CellGroupData[{
+Cell[26752, 817, 37012, 1078, 1538, "Input"],
+Cell[CellGroupData[{
+Cell[63789, 1899, 55, 0, 23, "Print"],
+Cell[63847, 1901, 195, 4, 26, "Print"],
+Cell[64045, 1907, 54, 0, 23, "Print"],
+Cell[64102, 1909, 109, 2, 23, "Print"],
+Cell[64214, 1913, 96, 2, 23, "Print"],
+Cell[64313, 1917, 175, 3, 26, "Print"],
+Cell[64491, 1922, 54, 0, 23, "Print"],
+Cell[64548, 1924, 109, 2, 23, "Print"],
+Cell[64660, 1928, 112, 2, 23, "Print"],
+Cell[64775, 1932, 178, 3, 26, "Print"],
+Cell[64956, 1937, 54, 0, 23, "Print"],
+Cell[65013, 1939, 109, 2, 23, "Print"],
+Cell[65125, 1943, 112, 2, 23, "Print"],
+Cell[65240, 1947, 194, 4, 23, "Print"],
+Cell[65437, 1953, 54, 0, 23, "Print"]
+}, Open  ]],
+Cell[65506, 1956, 124, 3, 31, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[65667, 1964, 116, 3, 31, "Input"],
+Cell[65786, 1969, 124, 3, 31, "Output"]
+}, Open  ]]
+}, Closed]]
+}
+]
+*)
+
+(* End of internal cache information *)
